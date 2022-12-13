@@ -1,29 +1,46 @@
 <template>
     <div class="header">
-      <h1>Cabeçalho</h1>
-    </div>
-  </template>
-  <script>
-  export default {
-    name: 'Home',
-    components: {
-  
-    },
 
+      <Character :tituloCharacter="tituloCharacter"/>
+    </div>
+  
+</template>
+<script>
+import Character from '../views/Character.vue'
+export default{
+
+  components: { 'Character': Character},
+  data() {
+    return {
+      
+      tituloCharacter: 'Character'
+      
+    }
   }
-  </script>
-  <style>
-  .home {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
-  .size-img {
-      width: 75px;
-      height: 75px;
-  }
-  </style>
+}
+</script>
+<style>
+.nav{
+  background-color: #333;
+  overflow: hidden;
+}
+.nav a {
+  float: left;
+  color: #f2f2f2f2;
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 17px;
+  text-decoration: none;
+  margin-right: 5px;
+}
+.nav a:hover {
+   background-color: #ddd;
+   color:#333; 
+   
+}
+.title{
+  text-align: center;
+  font-size: 37px;
+}
+</style>
   

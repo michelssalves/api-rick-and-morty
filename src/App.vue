@@ -1,10 +1,22 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div class="nav">
       <router-link to="/">Character</router-link>
       <router-link to="/location">Location</router-link>
       <router-link to="/episodes">Episode</router-link> 
-    </div>
+      </div>
+    <Header/>
     <router-view/>
   </div>
 </template>
+<script>
+
+export default {
+ 
+  components: {
+    name: 'App',
+    
+  },
+
+}
+</script>

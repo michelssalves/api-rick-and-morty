@@ -1,6 +1,8 @@
+ 
 <template>
   <div class="home">
     <div class="container">
+      <h1 class="title"> {{tituloCharacter }} </h1>
       <table class="table table-dark">
         <thead>
           <tr>
@@ -23,44 +25,42 @@
                 </ul>
               </th>-->
               <th>
-                <select name="" id="">
-                    <option v-for="(episodes, key) in character.episode"  target="_blank" :href="episodes">{{ key + 1 }}</option>
+                <select @change="sortBy" name="" id="">
+                    <option v-for="(episodes, key) in character.episode" :value="episodes" >{{ key + 1 }}</option>
                 </select>
               </th>
           </tr>
         </tbody>
       </table>
     </div>
-  </div>
+  </div> 
 </template>
 <script>
 import axios from 'axios'
 
 export default {
-  name: 'Home',
+  name: 'Character',
+  props: ['tituloCharacter'],
   components: {
-
+  
   },
   data() {
     return {
-      index: 0,
-      search: '',
       characters: [],
-      locations: [],
-      episodes: []
-
-
+ 
+      
     }
   },
   mounted() {
 
     this.getAllCharacters()
-    this.getAllEpisodes()
-    this.getAllLocations()
 
   },
   methods: {
-  
+    sortBy: function(event){
+     // alert('Hello ' + this.name + '!')
+    console.log(event.target.value)
+    },
     async getAllCharacters() {
       axios.get('https://rickandmortyapi.com/api/character')
         .then(res => {
@@ -74,13 +74,7 @@ export default {
           //console.error(e);
         })
     },
-  },
-  computed: {
-    filterSearch(){
-      return this.characters.filter((character) => {
-        return character.name.toLowerCase().includes(this.search.toLowerCase())
-      })
-    }
+
   }
 }
 

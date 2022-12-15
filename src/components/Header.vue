@@ -1,19 +1,19 @@
 <template>
     <div class="header">
-
-      <Character :tituloCharacter="tituloCharacter"/>
+      <div class="container">
+      <div class="title">
+      <h2>{{ title }}</h2>
+      </div>
     </div>
-  
+  </div>
 </template>
 <script>
-import Character from '../views/Character.vue'
-export default{
 
-  components: { 'Character': Character},
+export default{
+  props: ['title'],
   data() {
     return {
       
-      tituloCharacter: 'Character'
       
     }
   }
@@ -21,12 +21,13 @@ export default{
 </script>
 <style>
 .nav{
-  background-color: #333;
+  background-color: #1D9790;
   overflow: hidden;
+  
 }
 .nav a {
   float: left;
-  color: #f2f2f2f2;
+  color: #330C3A;
   padding: 14px 16px;
   text-align: center;
   font-size: 17px;
@@ -41,6 +42,11 @@ export default{
 .title{
   text-align: center;
   font-size: 37px;
+  border: #330C3A;
+  border-radius: 15px;
+  border-style: double;
+  background-color:#1D9790;
+  font-style: oblique;
 }
 </style>
   

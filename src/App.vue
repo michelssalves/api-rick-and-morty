@@ -5,8 +5,7 @@
       <router-link to="/location">Location</router-link>
       <router-link to="/episodes">Episode</router-link> 
       </div>
-    <Header/>
-    <router-view/>
+      <router-view/>
   </div>
 </template>
 <script>
@@ -14,7 +13,7 @@
 export default {
  
   components: {
-    name: 'App',
+    
     
   },
 

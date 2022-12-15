@@ -1,8 +1,8 @@
  
 <template>
   <div class="home">
+      <Header :title="title"></Header>
     <div class="container">
-      <h1 class="title"> {{tituloCharacter }} </h1>
       <table class="table table-dark">
         <thead>
           <tr>
@@ -16,7 +16,7 @@
           <tr v-for="character in characters" >
               <th>{{character.id}}</th>
               <th ><img class="size-img" :src="character.image" alt=""></th>
-              <th><a :href="character.location.url">{{character.location.name}}</a></th>
+              <th><a id="a-color" :href="character.location.url">{{character.location.name}}</a></th>
              <!-- <th>
                 <ul>
                   <li>
@@ -37,16 +37,18 @@
 </template>
 <script>
 import axios from 'axios'
+import Header from '../components/Header.vue'
 
 export default {
   name: 'Character',
-  props: ['tituloCharacter'],
+
   components: {
-  
+    Header
   },
   data() {
     return {
       characters: [],
+      title: 'Character',
  
       
     }
@@ -64,13 +66,13 @@ export default {
     async getAllCharacters() {
       axios.get('https://rickandmortyapi.com/api/character')
         .then(res => {
-          // manipula o sucesso da requisição
+          // manipula o sucesso da requisiï¿½ï¿½o
           //console.log(res.data.results);
           this.characters = res.data.results
 
         })
         .catch(e => {
-          // manipula erros da requisição
+          // manipula erros da requisiï¿½ï¿½o
           //console.error(e);
         })
     },
@@ -86,10 +88,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 .size-img {
     width: 75px;
     height: 75px;
+}
+#a-color{
+  color: white
 }
 </style>

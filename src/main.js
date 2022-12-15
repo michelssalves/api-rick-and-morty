@@ -8,7 +8,7 @@ import bundle from 'bootstrap/dist/js/bootstrap.min.js'
 import bootstrap from 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import Header from './components/Header.vue'
+
 
 
 Vue.use(bootstrap, jQuery, popper, bundle)
@@ -17,7 +17,6 @@ Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
 
-Vue.component('Header', Header)
 
 new Vue({
   router,
